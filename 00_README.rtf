@@ -1,0 +1,74 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww27300\viewh16760\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Project: \'93The Structure of Identity Facilitation and Interference\'94\
+\
+Maria C. Ramos\
+mc@mariacramos.com\
+\
+Overview\
+--------\
+This project contains the data and code that reproduce the results in the main manuscript. \
+ The scripts must be run in sequence as indicated by their initial file numbers.\
+\
+Requirements\
+------------\
+- R and RStudio\
+- R libraries (see individual scripts for details)\
+- Datasets: data/facil_net.Rdata, data/interf_net.Rdata, data/n_matrix.Rdata\
+\
+Instructions\
+------------\
+\
+1. Descriptive statistics\
+   - File: 01_descriptives.R\
+   - This script conducts data pre-processing tasks and obtains descriptive statistics reported in the main manuscript, including Figure 2.\
+   - All information on how the source data were obtained and converted into the data for this study is included in the manuscript. \
+   - Outputs: figures/figure2_co_ocurrence.png\
+\
+2. Obtaining Blockmodeling Results for Facilitation Networks\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0    - File: 02_blockmodeling_facilitation.R\
+   - This script obtains blockmodeling results for facilitation networks. If you run into memory issues, it is also possible to replicate the code by breaking \
+   - it down into multiple separate scripts by blockmodeling type (e.g., pre-specified, cohesive, etc.). The code includes detailed information on how \
+   - models were specified. \
+   - Outputs: results/res_coh_pos_bm.Rdata, results/res_coh_pos_rf.Rdata,\
+	results/res_hier_coh_pos_bm.Rdata, results/res_hier_coh_pos_rf.Rdata, \
+	results/res_hier_pos_bm.Rdata, results/res_hier_pos_rf.Rdata, \
+	results/res_pres_pos_bm.Rdata, results/res_pres_pos_rf.Rdata \
+	results/res_trans_coh_pos_bm.Rdata, results/res_trans_coh_pos_rf.Rdata,\
+	results/res_trans_pos_bm.Rdata, results/res_trans_pos_rf.Rdata, \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 	results/res_pres_pos_dens.Rdata. \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 3. Obtaining Figures for Facilitation Networks\
+   - File: 03_plots_facilitation.R\
+   - This script combines blockmodeling results for facilitation networks and creates publication figures.\
+   - Outputs: figures/figure3_panela.png, figures/figure3_panelb.png, figures/figure4.png.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 4. Obtaining Blockmodeling Results for Interference Networks\
+   - File: 04_blockmodeling_interference.R\
+   - This script obtains blockmodeling results for interference networks. If you run into memory issues, it is also possible to replicate the code by breaking \
+   - it down into multiple separate scripts by blockmodeling type (e.g., pre-specified, cohesive, etc.). The code includes detailed information on how \
+    models were specified. \
+   - Outputs: results/res_coh_neg_bm.Rdata, results/res_coh_neg_rf.Rdata,\
+	results/res_hier_coh_neg_bm.Rdata, results/res_hier_coh_neg_rf.Rdata, \
+	results/res_hier_neg_bm.Rdata, results/res_hier_neg_rf.Rdata, \
+	results/res_pres_neg_bm.Rdata, results/res_pres_neg_rf.Rdata \
+	results/res_trans_coh_neg_bm.Rdata, results/res_trans_coh_neg_rf.Rdata,\
+	results/res_trans_neg_bm.Rdata, results/res_trans_neg_rf.Rdata, \
+	results/res_pres_neg_dens.Rdata.\
+\
+5. Obtaining Figures for Interference Networks\
+   - File: 03_plots_facilitation.R\
+   - This script combines blockmodeling results for interference networks and creates publication figures.\
+   - Outputs: figures/figure5_panela.png, figures/figure5_panelb.png, figures/figure6.png.\
+}
