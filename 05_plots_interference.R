@@ -161,6 +161,9 @@ neg_pre_dens3 <- funByBlocks(res_pres_neg_bm$'3')
 neg_pre_dens5 <- funByBlocks(res_pres_neg_bm$'5')
 neg_pre_dens7 <- funByBlocks(res_pres_neg_bm$'7')
 
+partition_2 <- clu(res_pres_neg_bm$'7', which = 2)
+neg_pre_dens7_2 <- funByBlocks(interf_net2,partition_2)
+
 neg_pre_dens3[is.nan(neg_pre_dens3)] <- 0
 neg_pre_dens5[is.nan(neg_pre_dens5)] <- 0
 neg_pre_dens7[is.nan(neg_pre_dens7)] <- 0
@@ -171,13 +174,24 @@ neg_pre_dens7 <-neg_pre_dens7[c(1,2,3,6,7,5,4),c(1,2,3,6,7,5,4)]
 rownames(neg_pre_dens7) <- 1:7
 colnames(neg_pre_dens7) <- 1:7
 
-new_clu <- data.frame(orig_clu = clu(res_pres_neg_bm[[5]])) |>  
+rownames(neg_pre_dens5) <- 1:5
+colnames(neg_pre_dens5) <- 1:5
+
+new_clu5 <- data.frame(orig_clu = clu(res_pres_neg_bm$'5')) |>  
   mutate(new_clu = case_when(
     orig_clu == 1 ~ 1,
     orig_clu == 2 ~ 2,
     orig_clu == 3 ~ 3,
-    orig_clu == 4 ~ 7,
-    orig_clu == 5 ~ 6,
+    orig_clu == 4 ~ 5,
+    orig_clu == 5 ~ 4))
+
+new_clu7 <- data.frame(orig_clu = clu(res_pres_neg_bm$'7', which = 2)) |>  
+  mutate(new_clu = case_when(
+    orig_clu == 1 ~ 1,
+    orig_clu == 2 ~ 2,
+    orig_clu == 3 ~ 3,
+    orig_clu == 4 ~ 6,
+    orig_clu == 5 ~ 7,
     orig_clu == 6 ~ 4, 
     orig_clu == 7 ~ 5))
 
@@ -203,7 +217,7 @@ plotMat(neg_pre_dens3,
         print.val = T, 
         plot.legend = F)
 plotMat(interf_net2, 
-        clu = clu(res_pres_neg_bm$'5'), 
+        clu = new_clu5$new_clu, 
         print.digits.cells = 3, 
         main = "", 
         mar = c(1,1,2,1), 
@@ -218,7 +232,7 @@ plotMat(neg_pre_dens5,
         print.val = T, 
         plot.legend = F)
 plotMat(interf_net2, 
-        clu = new_clu$new_clu, 
+        clu = new_clu7$new_clu, 
         print.digits.cells = 3, 
         main = "", 
         mar = c(1,1,2,1), 
