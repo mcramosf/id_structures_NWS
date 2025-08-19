@@ -161,6 +161,9 @@ dev.off()
 res_pres_pos_dens2 <- res_pres_pos_dens[[5]]
 res_pres_pos_dens2 <- res_pres_pos_dens2[c(1,2,4,5,6,3),c(1,2,4,5,6,3)]
 
+colnames(res_pres_pos_dens2) <- 1:6
+rownames(res_pres_pos_dens2) <- 1:6
+
 new_clu <- data.frame(orig_clu = clu(res_pres_pos_bm[[5]])) |>  
   mutate(new_clu = case_when(
     orig_clu == 1 ~ 1,
